@@ -40,20 +40,7 @@ export default function Index() {
 
                         <FlatList
                             data={dreams.headers}
-                            renderItem={({item}) => (
-                                <View className="bg-[#182436] p-4 rounded-lg mb-4">
-                                    <Text className="text-white text-lg font-bold">{item.title}</Text>
-                                    <Text className="text-blue-200 text-sm">
-                                        {new Date(item.date).toLocaleDateString()}
-                                    </Text>
-                                    <Text
-                                        className="text-white text-sm mt-2 underline"
-                                        // onPress={() => router.push(`/dream/${item.headerId}`)}
-                                    >
-                                        View Dream
-                                    </Text>
-                                </View>
-                            )}
+                            renderItem={({item}) => <DreamCard dream={item} />}
                             keyExtractor={(item) => item.headerId.toString()}
                             className='mt-2 pb-32'
                             scrollEnabled={false}
