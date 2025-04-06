@@ -61,3 +61,29 @@ export const postDream = async ({ userId, dreamDescription }: { userId: number, 
         throw error;
    }
 }
+
+export const getPostData = async ({ headerId }: { headerId: number }) => {
+    try {
+       console.log("About to call /viewPost")
+       const response = await fetch('http://localhost:8000/viewPost', {
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json',
+           },
+           body: JSON.stringify({
+               "headerId": headerId
+           })
+       });
+       if (!response.ok) {
+           const errorText = await response.text();
+           console.error(`API Error (${response.status}): ${errorText}`);
+           throw new Error(`Failed to get feed: ${response.status}`);
+       }
+       const data = await response.json();
+       console.log("API response successful:", data);
+       return data;
+   } catch (error) {
+        console.error("API fetch error:", error);
+        throw error;
+   }
+}
