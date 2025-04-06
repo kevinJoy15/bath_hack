@@ -57,6 +57,7 @@ const DreamCard = ({ dream }: DreamCardProps) => {
             params: {
                 title: dream.title,
                 date: dream.date,
+                userId: dream.userId,
                 username: username
             }
         });
@@ -79,6 +80,7 @@ const DreamCard = ({ dream }: DreamCardProps) => {
             <Text className="text-blue-200 text-sm mb-3">
                 {new Date(dream.date).toLocaleDateString()}
             </Text>
+            <Text className="text-white text-lg font-bold">{dream.userId}</Text>
 
             {/* Dream preview image - optional based on your design */}
             <Image
