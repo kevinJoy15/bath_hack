@@ -38,6 +38,12 @@ const defaultProfilePics = [
     // Replace with actual paths to your profile pictures
 ];
 
+const thumbnails = [
+    require('@/assets/thumbnails/2.png'),
+    require('@/assets/thumbnails/3.png'),
+    require('@/assets/thumbnails/4.png'),
+]
+
 const DreamCard = ({ dream }: DreamCardProps) => {
     const router = useRouter();
 
@@ -80,11 +86,11 @@ const DreamCard = ({ dream }: DreamCardProps) => {
             <Text className="text-blue-200 text-sm mb-3">
                 {new Date(dream.date).toLocaleDateString()}
             </Text>
-            <Text className="text-white text-lg font-bold">{dream.userId}</Text>
+            {/*<Text className="text-white text-lg font-bold">{dream.userId}</Text>*/}
 
             {/* Dream preview image - optional based on your design */}
             <Image
-                source={images.dreamPreview || require('@/assets/images/duck.png')}
+                source={thumbnails[dream.userId-2]}
                 className="w-full h-32 rounded-md mb-3"
                 resizeMode="cover"
             />
