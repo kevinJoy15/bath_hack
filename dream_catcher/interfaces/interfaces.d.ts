@@ -75,3 +75,11 @@ interface TrendingCardProps {
   movie: TrendingMovie;
   index: number;
 }
+
+
+interface FYPDreamCard{
+  id: number;
+  title: string;
+  image;
+  date: string;
+}
