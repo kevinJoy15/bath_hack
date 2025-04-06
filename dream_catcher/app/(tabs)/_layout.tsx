@@ -69,7 +69,7 @@ const _Layout = () => {
                         headerShown: false,
                         tabBarIcon: ({ focused }: { focused: boolean }) => (
                             <>
-                                <TabIcon focused={focused} icon={icons.search} title="Search" />
+                                <TabIcon focused={focused} icon={icons.add} title="Add" />
                             </>
                         )
                     }}
@@ -82,7 +82,7 @@ const _Layout = () => {
                         headerShown: false,
                         tabBarIcon: ({ focused }: { focused: boolean }) => (
                             <>
-                                <TabIcon focused={focused} icon={icons.save} title="Saved" />
+                                <TabIcon focused={focused} icon={icons.search} title="Find" />
                             </>
                         )
                     }}

@@ -10,74 +10,80 @@ const Me = () => {
         <View style={styles.container}>
             <Image source={images.bg} style={styles.bgImage} />
 
-            <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-                <View style={styles.contentContainer}>
-                    {/* Profile Picture */}
-                    <View style={styles.profileContainer}>
-                        <Image source={diya} style={styles.profileImage} />
-                        <View style={styles.textContainer}>
-                            <Text style={styles.profileName}>Diya Vibhakar</Text>
-                            <Text style={styles.profileUsername}>Username: dv356</Text>
-                            <Text style={styles.profileDate}>Joined: January 2022</Text>
-                        </View>
+            {/* Fixed Header Section with Profile Info */}
+            <View style={styles.fixedHeaderContainer}>
+                {/* Profile Picture and Info */}
+                <View style={styles.profileContainer}>
+                    <Image source={diya} style={styles.profileImage} />
+                    <View style={styles.textContainer}>
+                        <Text style={styles.profileName}>Diya Vibhakar</Text>
+                        <Text style={styles.profileUsername}>Username: dv356</Text>
+                        <Text style={styles.profileDate}>Joined: January 2022</Text>
                     </View>
+                </View>
+            </View>
 
-                    <View style={styles.statsContainer}>
-                        <View style={styles.statItem}>
-                            <Text style={styles.statNumber}>120</Text>
-                            <Text style={styles.statLabel}>Posts</Text>
-                        </View>
-                        <View style={styles.statItem}>
-                            <Text style={styles.statNumber}>350</Text>
-                            <Text style={styles.statLabel}>Followers</Text>
-                        </View>
-                        <View style={styles.statItem}>
-                            <Text style={styles.statNumber}>180</Text>
-                            <Text style={styles.statLabel}>Following</Text>
-                        </View>
+            {/* Scrollable Content */}
+            <ScrollView
+                style={styles.scrollView}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={styles.scrollContentContainer}
+            >
+                <View style={styles.statsContainer}>
+                    <View style={styles.statItem}>
+                        <Text style={styles.statNumber}>120</Text>
+                        <Text style={styles.statLabel}>Posts</Text>
                     </View>
+                    <View style={styles.statItem}>
+                        <Text style={styles.statNumber}>350</Text>
+                        <Text style={styles.statLabel}>Followers</Text>
+                    </View>
+                    <View style={styles.statItem}>
+                        <Text style={styles.statNumber}>180</Text>
+                        <Text style={styles.statLabel}>Following</Text>
+                    </View>
+                </View>
 
-                    <View style={styles.bioContainer}>
-                        <Text style={styles.bioText}>
-                            "Life is beautiful and full of surprises." — User's favorite quote
-                        </Text>
-                    </View>
+                <View style={styles.bioContainer}>
+                    <Text style={styles.bioText}>
+                        "Life is beautiful and full of surprises." — User's favorite quote
+                    </Text>
+                </View>
 
-                    {/* Graph Image - Add graph image here */}
-                    <View style={styles.graphContainer}>
-                        <Image source={graph} style={styles.graphImage} />
-                    </View>
+                {/* Graph Image - Add graph image here */}
+                <View style={styles.graphContainer}>
+                    <Image source={graph} style={styles.graphImage} />
+                </View>
 
-                    {/* Update Password Section */}
-                    <View style={styles.sectionContainer}>
-                        <Text style={styles.sectionTitle}>Update Password</Text>
-                        <TouchableOpacity style={styles.button}>
-                            <Text style={styles.buttonText}>Change Password</Text>
-                        </TouchableOpacity>
-                    </View>
+                {/* Update Password Section */}
+                <View style={styles.sectionContainer}>
+                    <Text style={styles.sectionTitle}>Update Password</Text>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>Change Password</Text>
+                    </TouchableOpacity>
+                </View>
 
-                    {/* Account Section */}
-                    <View style={styles.sectionContainer}>
-                        <Text style={styles.sectionTitle}>Account</Text>
-                        <TouchableOpacity style={styles.button}>
-                            <Text style={styles.buttonText}>View Account</Text>
-                        </TouchableOpacity>
-                    </View>
+                {/* Account Section */}
+                <View style={styles.sectionContainer}>
+                    <Text style={styles.sectionTitle}>Account</Text>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>View Account</Text>
+                    </TouchableOpacity>
+                </View>
 
-                    {/* Settings Section */}
-                    <View style={styles.sectionContainer}>
-                        <Text style={styles.sectionTitle}>Settings</Text>
-                        <TouchableOpacity style={styles.button}>
-                            <Text style={styles.buttonText}>Go to Settings</Text>
-                        </TouchableOpacity>
-                    </View>
+                {/* Settings Section */}
+                <View style={styles.sectionContainer}>
+                    <Text style={styles.sectionTitle}>Settings</Text>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>Go to Settings</Text>
+                    </TouchableOpacity>
+                </View>
 
-                    {/* Logout Button */}
-                    <View style={styles.sectionContainer}>
-                        <TouchableOpacity style={styles.logoutButton}>
-                            <Text style={styles.logoutText}>Logout</Text>
-                        </TouchableOpacity>
-                    </View>
+                {/* Logout Button */}
+                <View style={styles.sectionContainer}>
+                    <TouchableOpacity style={styles.logoutButton}>
+                        <Text style={styles.logoutText}>Logout</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>
@@ -97,19 +103,21 @@ const styles = StyleSheet.create({
         height: '100%',
         zIndex: 0,
     },
+    fixedHeaderContainer: {
+        paddingHorizontal: 20,
+        paddingTop: 60, // Adjust this value as needed for proper spacing from top
+        paddingBottom: 15,
+    },
     scrollView: {
         flex: 1,
         paddingHorizontal: 20,
-        paddingBottom: 10,
     },
-    contentContainer: {
-        flex: 1,
-        marginTop: 100, // Space from the top for logo and profile
+    scrollContentContainer: {
+        paddingBottom: 30, // Add some padding at the bottom of the scrollable content
     },
     profileContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 30,
     },
     profileImage: {
         width: 80,
@@ -176,6 +184,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 20,
+        marginTop: 10, // Add some space from the fixed header
     },
     statItem: {
         alignItems: 'center',
@@ -211,6 +220,4 @@ const styles = StyleSheet.create({
         borderWidth: 2, // Optional: add border width if you want to accentuate the rounded edges
         borderColor: '#fff', // Optional: add border color for the image
     },
-    
-    
 });

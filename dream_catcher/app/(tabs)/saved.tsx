@@ -15,13 +15,20 @@ export default function Saved() {
         <View className="flex-1 bg-primary">
             <Image source={images.bg} className="absolute w-full z-0"/>
 
-            {/* Main Content */}
-            <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-                <View style={styles.contentContainer}>
-                    <Image source={icons.logo} style={styles.logo} />
+            {/* Fixed Logo */}
+            <View style={styles.logoContainer}>
+                <Image source={icons.logo} className='w-20 h-20 mt-20 mb-5 mx-auto' />
+            </View>
 
-                    <View className="flex-1 mt-5">
-                    <FriendSearchBar />
+            {/* Scrollable Content */}
+            <ScrollView
+                style={styles.scrollView}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={styles.scrollContentContainer}
+            >
+                <View style={styles.contentContainer}>
+                    <View className="flex-1">
+                        <FriendSearchBar />
                     </View>
 
                     <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
@@ -77,20 +84,21 @@ export default function Saved() {
                     </View>
                 </View>
             </ScrollView>
-
-
         </View>
-    ); 
+    );
 }
 
-
-
 const styles = StyleSheet.create({
-    
+    logoContainer: {
+        paddingHorizontal: 20,
+        alignItems: 'center',
+    },
     scrollView: {
         flex: 1,
         paddingHorizontal: 20,
-        paddingBottom: 10,
+    },
+    scrollContentContainer: {
+        paddingBottom: 20,
     },
     logo: {
         width: 50,
@@ -101,7 +109,6 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        marginTop: 20,
     },
     textContainer: {
         flexDirection: 'column', // Stack the texts vertically
@@ -156,4 +163,3 @@ const styles = StyleSheet.create({
         borderRadius: 15,
     },
 });
-
