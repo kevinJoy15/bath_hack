@@ -24,12 +24,16 @@ export default function Index() {
 
             {/* Fixed logo at the top */}
             <View className="px-5">
-                <Image source={icons.logo} className='w-20 h-20 mt-20 mb-5 mx-auto' />
+                <Image
+                    source={icons.logo}
+                    className='w-32 h-16 mt-20 mb-5 mx-auto'
+                    resizeMode="contain"
+                />
             </View>
 
             {/* Scrollable content below the logo */}
             <ScrollView className="flex-1 px-5" showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{paddingBottom: 10}}>
+                        contentContainerStyle={{paddingBottom: 80}}>
                 {dreamsLoading ? (
                     <ActivityIndicator
                         animating={true}
@@ -48,7 +52,7 @@ export default function Index() {
                             renderItem={({item}) => <DreamCard dream={item} />}
                             keyExtractor={(item) => item.headerId.toString()}
                             className='mt-2'
-                            contentContainerStyle={{ paddingBottom: 120 }}
+                            contentContainerStyle={{ paddingBottom: 120 }} // This is actually already good
                             scrollEnabled={false}
                         />
                     </View>

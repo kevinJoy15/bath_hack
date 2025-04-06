@@ -27,7 +27,7 @@ const Me = () => {
             <ScrollView
                 style={styles.scrollView}
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={styles.scrollContentContainer}
+                contentContainerStyle={{...styles.scrollContentContainer, paddingBottom: 80}} // Add extra padding
             >
                 <View style={styles.statsContainer}>
                     <View style={styles.statItem}>

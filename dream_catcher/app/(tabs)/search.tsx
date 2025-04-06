@@ -11,14 +11,18 @@ export default function Search() {
 
             {/* Fixed Logo */}
             <View className="px-5">
-                <Image source={icons.logo} className='w-20 h-20 mt-20 mb-5 mx-auto' />
+                <Image
+                    source={icons.logo}
+                    className='w-32 h-16 mt-20 mb-5 mx-auto'
+                    resizeMode="contain"
+                />
             </View>
 
             {/* Scrollable Content */}
             <ScrollView
                 className="flex-1 px-5"
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{paddingBottom: 10}}
+                contentContainerStyle={{paddingBottom: 80}} // Increased padding
             >
                 <View className="flex-1">
                     <PromptBar />

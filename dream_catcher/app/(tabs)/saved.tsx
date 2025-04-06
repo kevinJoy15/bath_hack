@@ -16,15 +16,19 @@ export default function Saved() {
             <Image source={images.bg} className="absolute w-full z-0"/>
 
             {/* Fixed Logo */}
-            <View style={styles.logoContainer}>
-                <Image source={icons.logo} className='w-20 h-20 mt-20 mb-5 mx-auto' />
+            <View className="px-5">
+                <Image
+                    source={icons.logo}
+                    className='w-32 h-16 mt-20 mb-5 mx-auto'
+                    resizeMode="contain"
+                />
             </View>
 
             {/* Scrollable Content */}
             <ScrollView
                 style={styles.scrollView}
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={styles.scrollContentContainer}
+                contentContainerStyle={{...styles.scrollContentContainer, paddingBottom: 80}} // Add extra padding
             >
                 <View style={styles.contentContainer}>
                     <View className="flex-1">
