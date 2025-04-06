@@ -35,8 +35,10 @@
 }
 
 export const postDream = async ({ userId, dreamDescription }: { userId: number, dreamDescription: string }) => {
+    console.log("Posting dream!")
     try {
-       const response = await fetch('http://localhost:8000/viewFeed', {
+       console.log("About to call api")
+       const response = await fetch('http://localhost:8000/post', {
            method: 'POST',
            headers: {
                'Content-Type': 'application/json',
