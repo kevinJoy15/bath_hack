@@ -26,8 +26,15 @@ export default function Index() {
             <View className="px-5">
                 <Image
                     source={icons.logo}
-                    className='w-32 h-16 mt-20 mb-5 mx-auto'
-                    resizeMode="contain"
+                    style={{
+                        width: '80%',  // Make the logo larger
+                        height: undefined,
+                        aspectRatio: 2,
+                        alignSelf: 'center',
+                        marginTop: 80,
+                        marginBottom: 20,
+                        resizeMode: 'contain'
+                    }}
                 />
             </View>
 
@@ -45,14 +52,14 @@ export default function Index() {
                     <Text className="text-white">Error: {dreamsError?.message}</Text>
                 ) : dreams ? (
                     <View>
-                        <Text className='text-lg text-white font-bold mt-5 mb-3'>Your Friends Dreams</Text>
+                        <Text className='text-xl text-white font-bold mt-5 mb-3'>Your Friends Dreams</Text>
 
                         <FlatList
                             data={dreams.headers}
                             renderItem={({item}) => <DreamCard dream={item} />}
                             keyExtractor={(item) => item.headerId.toString()}
                             className='mt-2'
-                            contentContainerStyle={{ paddingBottom: 120 }} // This is actually already good
+                            contentContainerStyle={{ paddingBottom: 120 }}
                             scrollEnabled={false}
                         />
                     </View>
