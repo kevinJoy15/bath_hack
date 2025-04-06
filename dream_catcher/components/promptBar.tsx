@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { icons } from '@/constants/icons';
 import { postDream } from '@/services/api';
+import { useContext } from 'react';
+import { LatestDreamContext } from '@/context/LatestDreamContext';
+
 
 const PromptBar = () => {
     const [searchText, setSearchText] = useState('');
@@ -10,8 +13,9 @@ const PromptBar = () => {
         author: 'Mock Author',
         story: 'This is a mock story that will be replaced by API data. The ocean stretched endlessly, a perfect wave curling toward the horizon. I stood on my surfboard, the sun warm on my skin, feeling weightless, as if the water itself was guiding me. But this wasn’t just any wave. This was a whale—a majestic creature, its back broad and powerful beneath my feet. I rode its smooth surface, the whale gliding effortlessly through the water, moving with the rhythm of the ocean like we were part of a single, fluid movement. The splash of the waves around us created a sparkling mist in the air, catching the light like a thousand diamonds. Every shift in the whale\'s body sent me soaring, feeling the rush of the wave, the sea, the life beneath. The whale turned, dipping into the depths, and for a moment, I thought we would sink. But instead, it breached, sending us skyward in a thrilling arc, catching the wind as we soared over the rolling waves. The world around us was a blur—just me, the whale, and the rhythm of the sea. Time seemed to stand still. As we descended, I could feel the pulse of the ocean beneath me, the heartbeat of the creature that carried me. I wasn\'t just surfing. I was one with the world, free and wild, riding the wave of life itself. And in that moment, I felt infinite.',
     });
-    console.log('In prompt bar')
     
+    const { setLatestDream } = useContext(LatestDreamContext);
+
     const handleSearch = async () => {
         console.log('HANDLING SEARCH');
         try {
@@ -34,9 +38,20 @@ const PromptBar = () => {
     // Simulate posting the story
     const handlePostStory = () => {
         Alert.alert('Post Success', 'Your story has been posted to your friends!');
-        // Optionally, you can also log or send the data to a server here
         console.log('Posted Story:', bookData);
+    
+        setLatestDream({
+            title: bookData.title,
+            image: require('@/assets/images/cat.png'), // placeholder for now
+            likes: Math.floor(Math.random() * 200),
+            date: new Date().toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+            }),
+        });
     };
+    
 
     return (
         <View className="flex-1 p-6 bg-gray-900">

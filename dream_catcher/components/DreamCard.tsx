@@ -1,12 +1,15 @@
 import { Link, useRouter } from "expo-router";
 import { Text, Image, TouchableOpacity, View } from "react-native";
 import { images } from "@/constants/images";
+import duck from '@/assets/images/duck.png';
+import { getPostData } from "@/services/api";
+import { useState } from "react";
 
-// Updated interface to include username and profile picture
 interface DreamHeader {
     headerId: number;
     title: string;
     date: string;
+    userId: number;
     username?: string; // Make it optional for backward compatibility
     profilePicture?: any; // For the profile image source
 }
@@ -58,9 +61,9 @@ const DreamCard = ({ dream }: DreamCardProps) => {
     const handlePress = () => {
         // Navigate to the dream detail screen with the dream ID
         router.push({
-            pathname: `/Dreams/${dream.headerId}`,
-            // We can also pass some basic params, but complex objects should be fetched in the detail screen
+            pathname: "/Dreams/[id]",
             params: {
+                id: dream.headerId,
                 title: dream.title,
                 date: dream.date,
                 userId: dream.userId,
