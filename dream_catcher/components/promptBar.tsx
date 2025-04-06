@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { icons } from '@/constants/icons';
+import useFetch from '@/services/useFetch';
+import { postDream } from '@/services/api';
 
 const PromptBar = () => {
+    const {
+            data: dreams,
+            loading: dreamsLoading,
+            error: dreamsError,
+        } = useFetch(() => postDream({userId: 1, dreamDescription: searchText}))
     const [searchText, setSearchText] = useState('');
     const [bookData, setDreamData] = useState({
         title: 'Mock Title',
