@@ -4,6 +4,7 @@ import { icons } from "@/constants/icons";
 import diya from '@/assets/images/diyap.png'; // Profile picture
 import graph from '@/assets/images/graph.png';
 import { images } from "@/constants/images"; // Assuming you have a background image for the profile
+import cat from '@/assets/images/cat.png';
 
 const Me = () => {
     return (
@@ -41,6 +42,19 @@ const Me = () => {
                         <Text style={styles.bioText}>
                             "Life is beautiful and full of surprises." — User's favorite quote
                         </Text>
+                    </View>
+
+                    {/* Latest Dream Section */}
+                    <View style={styles.dreamSection}>
+                        <Text style={styles.sectionTitle}>Your Latest Dream</Text>
+                        <View style={styles.dreamCard}>
+                            <Image source={cat} style={styles.dreamImage} />
+                            <View style={styles.dreamTextContainer}>
+                                <Text style={styles.dreamTitle}>Cat interviews you while you fly a bike</Text>
+                                <Text style={styles.dreamDate}>April 3, 2025</Text>
+                                <Text style={styles.dreamLikes}>❤️ 128 likes</Text>
+                            </View>
+                        </View>
                     </View>
 
                     {/* Graph Image - Add graph image here */}
@@ -211,6 +225,39 @@ const styles = StyleSheet.create({
         borderWidth: 2, // Optional: add border width if you want to accentuate the rounded edges
         borderColor: '#fff', // Optional: add border color for the image
     },
-    
-    
+    dreamSection: {
+        marginBottom: 20,
+        paddingHorizontal: 20,
+    },
+    dreamCard: {
+        flexDirection: 'row',
+        backgroundColor: '#2A2A2A',
+        borderRadius: 12,
+        padding: 12,
+        alignItems: 'center',
+    },
+    dreamImage: {
+        width: 70,
+        height: 70,
+        borderRadius: 10,
+        marginRight: 15,
+    },
+    dreamTextContainer: {
+        flex: 1,
+    },
+    dreamTitle: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: '600',
+        marginBottom: 4,
+    },
+    dreamDate: {
+        color: 'rgba(255, 255, 255, 0.6)',
+        fontSize: 13,
+        marginBottom: 2,
+    },
+    dreamLikes: {
+        color: 'rgba(255, 255, 255, 0.8)',
+        fontSize: 14,
+    },    
 });
